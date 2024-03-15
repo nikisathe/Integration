@@ -3,6 +3,7 @@ import { BrowserRouter,Route, Routes  } from 'react-router-dom';
  import Login from './Components/Login';
 import StudentProfile from './Components/StudentProfile ';
 import Parent from './Components/Parent';
+import Profile from './Components/Profile';
 
 
 function App() { 
@@ -13,7 +14,7 @@ function App() {
     <Routes>
         <Route  path="/" element={<Login/>}/>
         <Route  path="/Student" element={<StudentProfile/>}/>
-        {/* <Route path="Student" element={<Student/>} /> */}
+        <Route path="profile" element={<Profile/>} />
         <Route  path="/Parent" element={<Parent/>}/>
       </Routes>
     </BrowserRouter>

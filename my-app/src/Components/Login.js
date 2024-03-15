@@ -13,7 +13,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://192.168.68.31:3001/check', {
+      const response = await axios.post('http://localhost:3001/check', {
         college_code: collegeCode
       });
 

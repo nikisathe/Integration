@@ -1,0 +1,108 @@
+
+
+.form-detail {
+    width: 100%;
+    height: 48%;
+    /* background-color: rgb(220, 34, 84); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  .form {
+    width: 100%;
+    height: 100%;
+  
+  }
+
+  .input-feild {
+    width: 100%;
+    height: 50px;
+  }
+
+  .input-feild input {
+    width: 32vw;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid rgba(21, 139, 176, 1);
+    color: rgba(105, 108, 114, 1);
+    font-size: 14px;
+    outline: none;
+    color: black;
+  }
+
+  .forget-pass {
+    width: 100%;
+    height: 15px;
+    /* background-color: brown; */
+  
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .forget-pass a {
+    color: rgba(21, 139, 176, 1);
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  .user-info {
+    width: 100%;
+    height: 20%;
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .sign-btn {
+    width: 25vw;
+    height: 7vh;
+    background: rgba(41, 18, 177, 0.98);
+    color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(41, 16, 188, 1);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .link-btn {
+    width: 25vw;
+    height: 7vh;
+    color: rgba(105, 108, 114, 1);
+    border: 1px solid rgba(160, 164, 171, 1);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+  }
+
+  .question{
+    width: 100%;
+    height:25px;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question a{
+  color:rgba(41, 18, 177, 1);
+  font-size: 13px;
+  font-weight:600;
+  margin-top: 10px;
+
+}
+  

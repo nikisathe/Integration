@@ -1,48 +1,68 @@
+// Import necessary libraries and dependencies
 import React, { useState } from "react";
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import "./StudentProfile.css";
 import Parent from "./Parent";
 import Teacher from "./Teacher";
 import Footer from "./Footer";
 import background1 from "../images/background1.jpg";
+import axios from "axios"; // Import Axios for making HTTP requests
 
-function StudentProfile   ()  {
-  const [studusername ,setStudUsername] = useState('');
-  const [studpassword, setStudPassword] = useState('');
-  const [error] = useState('');
-  const navigate = useNavigate();
- 
-  const  handleSubmit = async (e) =>{
-    e.preventDefault();
-    
-    try {
-      const res = await axios.post("http://localhost:3001/login" , {
-         stud_username : studusername ,
-          stud_password : studpassword 
-        });
-        if(res.data.success){
-          navigate( "/profile");
-    } }catch(error) {
-       alert(" error check data");
-  }
-    };
+const StudentProfile = () => {
+  // State variables to manage the visibility of different components
   const [showParent, setShowParent] = useState(false);
   const [showTeacher, setShowTeacher] = useState(false);
   const [showStudentForm, setShowStudentForm] = useState(true);
 
+  // Function to handle form submission
+  const handleFormSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Fetch input values from the form
+    const schoolCode = event.target.elements.schoolcode.value;
+    const username = event.target.elements["email/mobile"].value;
+    const password = event.target.elements.password.value;
+
+    try {
+      // Make a POST request to your login API
+      const response = await axios.post("/login", {
+        stud_username: username,
+        stud_password: password,
+      });
+
+      // If login is successful, show appropriate content based on the user type
+      if (response.data.success) {
+        // Logic to determine user type and show corresponding content
+        // For now, assuming all users are students
+        setShowParent(false);
+        setShowTeacher(false);
+        setShowStudentForm(true);
+      } else {
+        // Handle unsuccessful login
+        console.log("Student data not found");
+        // You can display an error message to the user
+      }
+    } catch (error) {
+      // Handle error if the request fails
+      console.error("Error logging in:", error);
+      // You can display an error message to the user
+    }
+  };
+
+  // Function to toggle visibility of parent section
   const toggleParent = () => {
     setShowParent(true);
     setShowTeacher(false);
     setShowStudentForm(false);
   };
 
+  // Function to toggle visibility of teacher section
   const toggleTeacher = () => {
     setShowParent(false);
     setShowTeacher(true);
     setShowStudentForm(false);
   };
 
+  // Function to toggle visibility of student form section
   const toggleStudent = () => {
     setShowParent(false);
     setShowTeacher(false);
@@ -94,7 +114,7 @@ function StudentProfile   ()  {
       >
         <div className="form-group">
           {showStudentForm && (
-            <form action="#" onSubmit={handleSubmit} >
+            <form onSubmit={handleFormSubmit}>
               <div className="login-form">
                 <div className="input">
                   <label htmlFor="schoolcode"></label>
@@ -108,29 +128,22 @@ function StudentProfile   ()  {
                 <div className="input ">
                   <label htmlFor="email/mobile"></label>
                   <input
-                  htmlFor="stud_username"
                     type="text"
-                    name="stud_username"
-                    id="stud_username"
-                    value={studusername}
-                    onChange={(e) => setStudUsername(e.target.value)}
+                    name="email/mobile"
+                    id="email/mobile"
                     placeholder="Username(Mobile/Email)"
                   />
                 </div>
                 <div className="input">
-                  <label htmlFor="password>"></label>
+                  <label htmlFor="password"></label>
                   <input
-                  htmlFor="stud_password"
                     type="password"
-                    name="stud_password"
-                    id="stud_password"
-                    value={studpassword}
-                    onChange={(e) => setStudPassword(e.target.value)}
-                   placeholder="Password / OTP"
+                    name="password"
+                    id="password"
+                    placeholder="Password / OTP"
                   />
                 </div>
                 <div className="forget-password">
-                 
                   <a href="#">Forget Password ?</a>
                 </div>
               </div>
@@ -149,15 +162,13 @@ function StudentProfile   ()  {
               </div>
             </form>
           )}
-          {error && <p>{error}</p>}
         </div>
       </div>
 
       <div className="footer">
-      
         <h1>Powered by</h1>
-        <h2>DreamsGuider.com</h2> 
-         <h3>Software | Education | Advertising</h3>
+        <h2>DreamsGuider.com</h2>
+        <h3>Software | Education | Advertising</h3>
       </div>
     </div>
   );
