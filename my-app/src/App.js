@@ -4,6 +4,7 @@ import { BrowserRouter,Route, Routes  } from 'react-router-dom';
 import StudentProfile from './Components/StudentProfile ';
 import Parent from './Components/Parent';
 import Profile from './Components/Profile';
+import Teacher from './Components/Teacher';
 
 
 function App() { 
@@ -16,6 +17,7 @@ function App() {
         <Route  path="/Student" element={<StudentProfile/>}/>
         <Route path="profile" element={<Profile/>} />
         <Route  path="/Parent" element={<Parent/>}/>
+        <Route path ="/teacher" element={<Teacher/>}/>
       </Routes>
     </BrowserRouter>
     </>
