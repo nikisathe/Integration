@@ -5,6 +5,7 @@ import StudentProfile from './Components/StudentProfile ';
 import Parent from './Components/Parent';
 import Profile from './Components/Profile';
 import Teacher from './Components/Teacher';
+import Loader from './Components/Loader';
 
 
 function App() { 
@@ -13,7 +14,8 @@ function App() {
     <BrowserRouter>
    
     <Routes>
-        <Route  path="/" element={<Login/>}/>
+        <Route  path="/Login" element={<Login/>}/>
+        <Route path="/" element={<Loader/>}/>
         <Route  path="/Student" element={<StudentProfile/>}/>
         <Route path="profile" element={<Profile/>} />
         <Route  path="/Parent" element={<Parent/>}/>
